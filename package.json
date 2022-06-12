@@ -1,0 +1,16 @@
+{
+  "name": "personal-site-sass",
+  "version": "1.0.0",
+  "description": "Welcome to my personal homepage. Here I will showcase all of the top projects I have been working on, as well as include some contact information. Thanks for visiting!",
+  "main": "script.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.52.3"
+  }
+}

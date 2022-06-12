@@ -1,0 +1,64 @@
+@use '../abstracts/mixins' as mx;
+
+.section__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.logo {
+  width: 46rem;
+  margin-top: 25rem;
+  margin-bottom: 1rem;
+  user-select: none;
+  animation: fadeIn 1500ms ease-out;
+  position: relative;
+  pointer-events: none;
+
+  &::after {
+    content: '';
+    height: 12rem;
+    width: 12rem;
+    background-image: url('../../assets/tree-logo--inner.svg');
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 28%;
+    left: 36.575%;
+    z-index: 1000;
+    animation: rotateIn 1500ms ease-out;
+    cursor: pointer;
+  }
+}
+
+.logo__img {
+  width: 100%;
+
+  &--outer {
+    width: 100%;
+
+    display: inline-block;
+    z-index: 1;
+  }
+}
+
+@include mx.respond(smallDesktop) {
+  .logo {
+    margin-top: 20rem;
+  }
+}
+
+@include mx.respond(tab-land) {
+  .logo {
+    margin-top: 12rem;
+  }
+}
+
+@include mx.respond(phoneSmall) {
+  .logo {
+    margin-top: 15rem;
+    margin-bottom: 2rem;
+  }
+}

@@ -1,0 +1,71 @@
+@use '../abstracts/mixins' as mx;
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Michroma', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-white);
+  position: relative;
+}
+
+.main {
+  background-image: url(../../assets/matterhorn-background-cropped-super-compressed.jpg),
+    linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53));
+  background-blend-mode: darken;
+  background-size: contain;
+  /* background-position-y: -40rem; */
+  /* background-position: top; */
+  background-repeat: no-repeat;
+  height: 5000px;
+  padding: 0 20rem;
+}
+
+@include mx.respond(tab-land) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 1000px) {
+  html {
+    font-size: 45%;
+  }
+}
+
+@include mx.respond(tab-port) {
+  html {
+    font-size: 40%;
+  }
+  .main {
+    padding: 0 10rem;
+  }
+}
+
+@media (max-width: 46.875em) {
+  html {
+    font-size: 35%;
+  }
+}
+
+@include mx.respond(phone) {
+  html {
+    font-size: 27%;
+  }
+
+  .main {
+    background-image: url('../../assets/matterhorn-background-cropped-super-compressed--small.jpg')
+      linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53));
+    padding: 0 2rem;
+    margin-bottom: 0;
+  }
+}
+
+@include mx.respond(phoneTiny) {
+  .main {
+    padding: 0 2rem;
+  }
+}

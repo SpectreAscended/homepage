@@ -1,0 +1,58 @@
+@use '../abstracts/mixins' as mx;
+
+.heading-primary {
+  font-family: 'Limelight', sans-serif;
+  font-size: 7.5rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  animation: moveInLeft 1000ms ease-in-out;
+  /* display: inline-block; */
+}
+
+.heading-secondary {
+  /* display: inline-block; */
+  font-size: 3rem;
+  font-weight: 400;
+  animation: moveInRight 1000ms ease-in-out;
+}
+
+.heading-tertiary {
+  font-size: 4rem;
+  /* font-family: 'Limelight'; */
+  display: inline-block;
+  /* text-transform: uppercase; */
+  /* text-shadow: 4px 4px 0 #000; */
+}
+
+.general-text {
+  letter-spacing: 0.25rem;
+}
+
+@include mx.respond(phone) {
+  .heading-primary {
+    font-size: 6.5rem;
+  }
+
+  .heading-secondary {
+    font-size: 2.5rem;
+  }
+}
+
+@include mx.respond(phoneSmall) {
+  .heading-primary {
+    margin-bottom: 1rem;
+  }
+
+  .heading-secondary {
+    margin-bottom: 2rem;
+  }
+}
+
+@include mx.respond(phoneTiny) {
+  .heading-primary {
+    font-size: 5rem;
+  }
+  .heading-secondary {
+    font-size: 2rem;
+  }
+}

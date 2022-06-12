@@ -1,0 +1,129 @@
+@use '../abstracts/mixins' as mx;
+
+.nav-wrapper {
+  position: sticky;
+  top: 0;
+  margin: 4rem auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header__nav {
+  display: inline-block;
+  animation: moveInBottom 750ms ease-in-out 750ms;
+  animation-fill-mode: backwards;
+}
+
+.nav-bar {
+  list-style: none;
+  display: flex;
+  /* gap: 2rem; */
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  border: solid 2px var(--color-white);
+  background-color: rgba(51, 51, 51, 0.8);
+
+  &__item {
+    border-right: solid 2px var(--color-white);
+    padding: 1rem 2rem;
+    cursor: pointer;
+    /* transition: all 450ms; */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    letter-spacing: 0.4rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.25);
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+      transform-origin: right;
+      z-index: -1;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+
+    & a:link,
+    & a:visited {
+      display: inline-block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 250ms;
+    }
+
+    &:hover a:link {
+      transform: scale(1.07);
+    }
+  }
+}
+
+@supports (backdrop-filter: blur(0.8rem)) or
+  (-webkit-backdrop-filter: blur(0.8rem)) {
+  .nav-bar {
+    -webkit-backdrop-filter: blur(0.8rem);
+    backdrop-filter: blur(0.8rem);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@include mx.respond(phone) {
+  .nav {
+    &-wrapper {
+      position: static;
+    }
+
+    &-bar {
+      flex-direction: column;
+      /* align-content: center; */
+      text-align: center;
+      -webkit-backdrop-filter: blur(0);
+      backdrop-filter: blur(0);
+
+      &__item {
+        padding: 2rem 7.5rem;
+        border-right: none;
+        border-bottom: solid 2px #fff;
+        font-size: 2.5rem;
+        letter-spacing: 0.85rem;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  .header__nav {
+    animation: moveInBottomLarge 750ms ease-out 750ms;
+    animation-fill-mode: backwards;
+  }
+
+  .section__about {
+    padding: 10rem auto 0 auto;
+    margin-top: 60rem;
+
+    &-text {
+      padding-top: 10rem;
+    }
+  }
+}
+
+@include mx.respond(phoneTiny) {
+  .nav-bar__item {
+    font-size: 2rem;
+  }
+}
